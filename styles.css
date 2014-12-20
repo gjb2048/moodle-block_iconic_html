@@ -1,0 +1,17 @@
+.block_iconic_html {
+  position: relative;
+}
+
+.block_iconic_html .content span.fa {
+  float: left;  /* Do not allow the block content area to be bigger as a result of the icon. */
+}
+
+.block_iconic_html .content span.fa:before {
+  left: 12px;
+  top: 12px;
+  position: absolute;
+}
+
+.block.block_iconic_html .header .title h2 {
+  padding: 2px 28px;
+}
