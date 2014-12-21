@@ -39,6 +39,11 @@ class block_iconic_html extends block_base {
 
     function specialization() {
         $this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('newhtmlblock', 'block_iconic_html'));
+        if (!empty($this->config->faclass)) {
+            $this->title = '<span class=\'fa fa-'.$this->config->faclass.'\'></span>'.$this->title;
+        } else {
+            $this->title = '<span class=\'fa fa-star\'></span>'.$this->title;
+        }
     }
 
     function instance_allow_multiple() {
@@ -76,11 +81,6 @@ class block_iconic_html extends block_base {
             $this->content->text = format_text($this->config->text, $format, $filteropt);
         } else {
             $this->content->text = '';
-        }
-        if (!empty($this->config->faclass)) {
-            $this->content->text .= '<span class=\'fa fa-'.$this->config->faclass.'\'></span>';
-        } else {
-            $this->content->text .= '<span class=\'fa fa-star\'></span>';
         }
 
         unset($filteropt); // Memory footprint.
