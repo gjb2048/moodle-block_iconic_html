@@ -1,3 +1,7 @@
 .block.block_iconic_html .header .title h2 span.fa {
-  padding: 0px 3px;
+  padding-right: 4px;
+}
+
+.dir-rtl .block.block_iconic_html .header .title h2 span.fa {
+  padding-left: 4px;
 }

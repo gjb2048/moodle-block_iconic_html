@@ -88,8 +88,7 @@ can be really useful in visualising the issue along with any files you consider 
 
 Known issues
 ============
-1. Does not work well with the Shoehorn or Essential themes.
-
+None.
 
 Version information
 ===================
