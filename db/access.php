@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * HTML block caps.
+ * Iconic HTML block caps.
  *
  * @package    block_iconic_html
  * @copyright &copy; 2014-onwards G J Barnard in respect to modifications of the HTML block.

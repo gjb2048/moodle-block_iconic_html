@@ -39,9 +39,9 @@ class block_iconic_html_edit_form extends block_edit_form {
         $mform->addElement('text', 'config_title', get_string('configtitle', 'block_iconic_html'));
         $mform->setType('config_title', PARAM_TEXT);
 
-        $mform->addElement('text', 'config_faclass', get_string('configfaclass', 'block_iconic_html'));
-        $mform->setType('config_faclass', PARAM_TEXT);
-        $mform->addHelpButton('config_faclass', 'configfaclass', 'block_html_fa');
+        $mform->addElement('text', 'config_iconclass', get_string('configiconclass', 'block_iconic_html'));
+        $mform->setType('config_iconclass', PARAM_TEXT);
+        $mform->addHelpButton('config_iconclass', 'configiconclass', 'block_iconic_html');
 
         $editoroptions = array('maxfiles' => EDITOR_UNLIMITED_FILES, 'noclean'=>true, 'context'=>$this->block->context);
         $mform->addElement('editor', 'config_text', get_string('configcontent', 'block_iconic_html'), null, $editoroptions);
@@ -51,7 +51,7 @@ class block_iconic_html_edit_form extends block_edit_form {
         if (!empty($CFG->block_html_allowcssclasses)) {
             $mform->addElement('text', 'config_classes', get_string('configclasses', 'block_iconic_html'));
             $mform->setType('config_classes', PARAM_TEXT);
-            $mform->addHelpButton('config_classes', 'configclasses', 'block_html_fa');
+            $mform->addHelpButton('config_classes', 'configclasses', 'block_iconic_html');
         }
     }
 

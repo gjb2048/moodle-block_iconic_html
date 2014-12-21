@@ -38,9 +38,9 @@ class block_iconic_html extends block_base {
     }
 
     function specialization() {
-        $this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('newhtmlblock', 'block_iconic_html'));
-        if (!empty($this->config->faclass)) {
-            $this->title = '<span class=\'fa fa-'.$this->config->faclass.'\'></span>'.$this->title;
+        $this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('newiconichtmlblock', 'block_iconic_html'));
+        if (!empty($this->config->iconclass)) {
+            $this->title = '<span class=\'fa fa-'.$this->config->iconclass.'\'></span>'.$this->title;
         } else {
             $this->title = '<span class=\'fa fa-star\'></span>'.$this->title;
         }
@@ -82,6 +82,9 @@ class block_iconic_html extends block_base {
         } else {
             $this->content->text = '';
         }
+
+        // See the content of the configdata in the block_instances table to understand that the FontAwesome class is being stored for backup / restore purposes.
+        // $this->content->text .= print_r(unserialize(base64_decode('Tzo4OiJzdGRDbGFzcyI6NDp7czo1OiJ0aXRsZSI7czoxNzoiVGVzdCBJY29uaWMgQmxvY2siO3M6NzoiZmFjbGFzcyI7czo1OiJzdGVhbSI7czo2OiJmb3JtYXQiO3M6MToiMSI7czo0OiJ0ZXh0IjtzOjE5OiI8cD5UZXN0IGNvbnRlbnQ8L3A+Ijt9')), true);
 
         unset($filteropt); // Memory footprint.
 

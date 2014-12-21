@@ -69,7 +69,7 @@ function block_iconic_html_pluginfile($course, $birecord_or_cm, $context, $filea
     $filename = array_pop($args);
     $filepath = $args ? '/'.implode('/', $args).'/' : '/';
 
-    if (!$file = $fs->get_file($context->id, 'block_html', 'content', 0, $filepath, $filename) or $file->is_directory()) {
+    if (!$file = $fs->get_file($context->id, 'block_iconic_html', 'content', 0, $filepath, $filename) or $file->is_directory()) {
         send_file_not_found();
     }
 
