@@ -30,3 +30,6 @@ $plugin->requires  = 2014110400;        // Requires this Moodle version
 $plugin->component = 'block_iconic_html';      // Full name of the plugin (used for diagnostics)
 $plugin->maturity = MATURITY_ALPHA;
 $plugin->release = '2.8.0.1';
+$plugin->dependencies = array(
+    'block_html'  => 2014111000
+);

@@ -29,5 +29,3 @@ if ($ADMIN->fulltree) {
     $settings->add(new admin_setting_configcheckbox('block_iconic_html_allowcssclasses', get_string('allowadditionalcssclasses', 'block_iconic_html'),
                        get_string('configallowadditionalcssclasses', 'block_iconic_html'), 0));
 }
-
-

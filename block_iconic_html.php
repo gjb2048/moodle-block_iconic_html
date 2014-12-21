@@ -23,7 +23,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class block_iconic_html extends block_base {
+class block_iconic_html extends block_html {
 
     function init() {
         $this->title = get_string('pluginname', 'block_iconic_html');
@@ -33,10 +33,6 @@ class block_iconic_html extends block_base {
         return true;
     }
 
-    function applicable_formats() {
-        return array('all' => true);
-    }
-
     function specialization() {
         $this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('newiconichtmlblock', 'block_iconic_html'));
         if (!empty($this->config->iconclass)) {
@@ -44,10 +40,6 @@ class block_iconic_html extends block_base {
         } else {
             $this->title = '<span class=\'fa fa-star\'></span>'.$this->title;
         }
-    }
-
-    function instance_allow_multiple() {
-        return true;
     }
 
     function get_content() {
@@ -111,55 +103,5 @@ class block_iconic_html extends block_base {
         $fs = get_file_storage();
         $fs->delete_area_files($this->context->id, 'block_iconic_html');
         return true;
-    }
-
-    function content_is_trusted() {
-        global $SCRIPT;
-
-        if (!$context = context::instance_by_id($this->instance->parentcontextid, IGNORE_MISSING)) {
-            return false;
-        }
-        //find out if this block is on the profile page
-        if ($context->contextlevel == CONTEXT_USER) {
-            if ($SCRIPT === '/my/index.php') {
-                /* This is exception - page is completely private, nobody else may see content there
-                   that is why we allow JS here. */
-                return true;
-            } else {
-                // No JS on public personal pages, it would be a big security issue.
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * The block should only be dockable when the title of the block is not empty
-     * and when parent allows docking.
-     *
-     * @return bool
-     */
-    public function instance_can_be_docked() {
-        return (!empty($this->config->title) && parent::instance_can_be_docked());
-    }
-
-    /*
-     * Add custom html attributes to aid with theming and styling
-     *
-     * @return array
-     */
-    function html_attributes() {
-        global $CFG;
-
-        $attributes = parent::html_attributes();
-
-        if (!empty($CFG->block_html_allowcssclasses)) {
-            if (!empty($this->config->classes)) {
-                $attributes['class'] .= ' '.$this->config->classes;
-            }
-        }
-
-        return $attributes;
     }
 }
